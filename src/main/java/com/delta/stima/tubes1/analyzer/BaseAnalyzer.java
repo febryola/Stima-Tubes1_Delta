@@ -4,7 +4,7 @@ import com.delta.stima.tubes1.command.Command;
 import com.delta.stima.tubes1.entities.Car;
 import com.delta.stima.tubes1.entities.GameState;
 
-public class BaseAnalyzer {
+public abstract class BaseAnalyzer {
   protected GameState gameState;
   protected Car playerCar;
   protected Car opponentCar;
@@ -31,5 +31,5 @@ public class BaseAnalyzer {
     return this.result;
   }
 
-  public void analyze() {}
+  public abstract void analyze();
 }
