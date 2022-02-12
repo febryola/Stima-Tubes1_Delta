@@ -12,7 +12,7 @@ public abstract class BaseAnalyzer {
   private Command result;
 
   public BaseAnalyzer(GameState gameState) {
-    this.gameState= gameState;
+    this.gameState = gameState;
     this.playerCar = gameState.player;
     this.opponentCar = gameState.opponent;
     this.solutionExist = false;

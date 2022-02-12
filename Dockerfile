@@ -28,4 +28,8 @@ COPY config/game-config.json ./game-config.json
 
 COPY --from=build /build /app/bots/first-player
 
+RUN mkdir /data
+RUN mkdir match-logs
+RUN ln -st /data /app/match-logs
+
 CMD ["make", "run"]
