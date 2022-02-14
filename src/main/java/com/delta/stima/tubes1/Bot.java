@@ -1,6 +1,7 @@
 package com.delta.stima.tubes1;
 
 import com.delta.stima.tubes1.analyzer.BoostCollector;
+import com.delta.stima.tubes1.analyzer.FixingCar;
 import com.delta.stima.tubes1.command.*;
 import com.delta.stima.tubes1.controller.Controller;
 import com.delta.stima.tubes1.entities.*;
@@ -19,7 +20,7 @@ public class Bot {
     private void register(){
         // ....
         this.ctr.addAnalyzer(new BoostCollector(gameState));
-        // ...
+        this.ctr.addAnalyzer(new FixingCar(gameState));
     }
 
     public Command run() {
