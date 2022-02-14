@@ -70,32 +70,25 @@ public class ObstacleAvoid extends BaseAnalyzer {
             return;
         }
 
-<<<<<<< HEAD
         // Obstacle checking
 
         // if car position is not on the left side and not on the right side
-        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)){
-            this.setSolution(new ChangeLaneCommand(-1));
-=======
-        // Cek Kiri ada obstacle ga?
-        if(currentLane > 1 && !this.isObstacleExist(currentLane-1)){
+        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
             this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
->>>>>>> 303cc81e79ec137220e28221e14f9db88b2a26b9
-            return;
         }
 
         if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane+1)) {
-            this.setSolution(new ChangeLaneCommand(currentLane+1));
+            this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
         }
 
         // if car position is on the left side
         if(currentLane == 1 && !this.isObstacleExist(currentLane+1)) {
-            this.setSolution(new ChangeLaneCommand(currentLane+1));
+            this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
         }
 
         // if car position is on the right side
         if (currentLane == this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
-            this.setSolution(new ChangeLaneCommand(currentLane-1));
+            this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
         }
 
         // Another trick, decrease speed
