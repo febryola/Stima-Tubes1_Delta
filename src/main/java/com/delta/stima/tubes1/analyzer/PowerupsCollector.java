@@ -25,18 +25,6 @@ public class PowerupsCollector extends BaseAnalyzer {
         }
     }
 
-    private List<List<Terrain>> getLanes(){
-        List<List<Terrain>> l = new ArrayList<>();
-
-        this.getVisibleLanes(1, RelativePosition.FRONT);
-
-        l.add(this.getVisibleLanes(this.playerCar.position.lane, RelativePosition.FRONT));
-        l.add(this.getVisibleLanes(this.playerCar.position.lane - 1, RelativePosition.FRONT));
-        l.add(this.getVisibleLanes(this.playerCar.position.lane + 1, RelativePosition.FRONT));
-
-        return l;
-    }
-
     public void analyze(){
         List<List<Terrain>> l = this.getLanes();
 

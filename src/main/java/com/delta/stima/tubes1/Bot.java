@@ -1,5 +1,6 @@
 package com.delta.stima.tubes1;
 
+import com.delta.stima.tubes1.analyzer.ObstacleAvoid;
 import com.delta.stima.tubes1.analyzer.PowerupsCollector;
 import com.delta.stima.tubes1.analyzer.FixingCar;
 import com.delta.stima.tubes1.command.*;
@@ -19,6 +20,7 @@ public class Bot {
     
     private void register(){
         // ....
+        this.ctr.addAnalyzer(new ObstacleAvoid(gameState));
         this.ctr.addAnalyzer(new PowerupsCollector(gameState));
         this.ctr.addAnalyzer(new FixingCar(gameState));
     }

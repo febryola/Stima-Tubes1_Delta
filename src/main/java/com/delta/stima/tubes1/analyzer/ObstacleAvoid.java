@@ -4,63 +4,80 @@ import com.delta.stima.tubes1.command.ChangeLaneCommand;
 import com.delta.stima.tubes1.command.DecelerateCommand;
 import com.delta.stima.tubes1.command.LizardCommand;
 import com.delta.stima.tubes1.entities.GameState;
-import com.delta.stima.tubes1.enums.RelativePosition;
-import com.delta.stima.tubes1.enums.State;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.delta.stima.tubes1.entities.Lane;
+import com.delta.stima.tubes1.enums.PowerUps;
+import com.delta.stima.tubes1.enums.Terrain;
 
 public class ObstacleAvoid extends BaseAnalyzer {
-    public  ObstacleAvoid(GameState gameState) {
+    public ObstacleAvoid(GameState gameState) {
         super(gameState);
     }
 
-    private void setCommandResult(int pos) {
-        switch (pos){
-            case 1:
-                this.setSolution(new LizardCommand());
-            case 2:
-                this.setSolution(new ChangeLaneCommand(-1));
-                break;
-            case 3:
-                this.setSolution(new ChangeLaneCommand(1));
-                break;
-            case 4:
-                this.setSolution(new DecelerateCommand());
+    private boolean checkIsLizardExist(){
+        for(PowerUps ps: this.gameState.player.powerups) {
+            if(ps == PowerUps.LIZARD){
+                return true;
+            }
         }
+
+        return false;
     }
 
-    private List<List<State>> getLanes(){
-        List<List<State>> l = new ArrayList<>();
+    private boolean isCybertruckExist(int lane) {
+        int currentBlock = this.playerCar.position.block;
 
-        this.getVisibleLanes(1, RelativePosition.FRONT);
+        for(Lane l: this.gameState.lanes.get(lane - 1)){
+            if(l.position.block > this.playerCar.speed){
+                return false;
+            } else if(l.position.block > currentBlock && l.isOccupiedByCyberTruck){
+                return true;
+            }
+        }
 
-        l.add(this.getVisibleLanes(this.playerCar.position.lane, RelativePosition.FRONT));
-        l.add(this.getVisibleLanes(this.playerCar.position.lane - 1, RelativePosition.FRONT));
-        l.add(this.getVisibleLanes(this.playerCar.position.lane + 1, RelativePosition.FRONT));
+        return false;
+    }
 
-        return l;
+    private boolean isTerrainObstacleExist(int lane){
+        int currentBlock = this.playerCar.position.block;
+
+        for(Lane l: this.gameState.lanes.get(lane - 1)){
+            if(l.position.block > this.playerCar.speed){
+                return false;
+            } else if(l.position.block > currentBlock && (l.terrain == Terrain.MUD || false)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isObstacleExist(int lane){
+        return this.isCybertruckExist(lane) || this.isTerrainObstacleExist(lane);
     }
 
     public void analyze() {
-        List<List<State>> l = this.getLanes();
+        int currentLane = this.playerCar.position.lane;
 
-        final State[] obstacle = {
-                State.HIT_EMP,
-                State.HIT_CYBER_TRUCK,
-                State.HIT_MUD,
-                State.HIT_OIL,
-                State.HIT_WALL
-        };
-
-
-        for(State type: obstacle){
-            for(int i = 0; i < l.size() - 1; i++){
-                if(l.get(i+1).contains(type)){
-                    this.setCommandResult(i);
-                    return;
-                }
-            }
+        if(!isObstacleExist(currentLane)){
+            return;
         }
+
+        // Cek Lizardnya ada ga?
+        if(this.checkIsLizardExist()){
+            this.setSolution(new LizardCommand());
+            return;
+        }
+
+        // Cek Kiri ada obstacle ga?
+        if(currentLane > 1 && !this.isObstacleExist(currentLane-1)){
+            this.setSolution(new ChangeLaneCommand(-1));
+            return;
+        }
+
+        // Kanan Cobain
+        // ...
+
+        // Pelanin
+        this.setSolution(new DecelerateCommand());
     }
 }

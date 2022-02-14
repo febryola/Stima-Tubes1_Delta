@@ -5,6 +5,7 @@ import com.delta.stima.tubes1.entities.Car;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.entities.Lane;
 import com.delta.stima.tubes1.enums.RelativePosition;
+import com.delta.stima.tubes1.enums.State;
 import com.delta.stima.tubes1.enums.Terrain;
 
 import java.util.ArrayList;
@@ -56,6 +57,18 @@ public abstract class BaseAnalyzer {
     }catch (IndexOutOfBoundsException exception){
       return new ArrayList<>();
     }
+  }
+
+  protected List<List<Terrain>> getLanes(){
+    List<List<Terrain>> l = new ArrayList<>();
+
+    this.getVisibleLanes(1, RelativePosition.FRONT);
+
+    l.add(this.getVisibleLanes(this.playerCar.position.lane, RelativePosition.FRONT));
+    l.add(this.getVisibleLanes(this.playerCar.position.lane - 1, RelativePosition.FRONT));
+    l.add(this.getVisibleLanes(this.playerCar.position.lane + 1, RelativePosition.FRONT));
+
+    return l;
   }
 
   public abstract void analyze();
