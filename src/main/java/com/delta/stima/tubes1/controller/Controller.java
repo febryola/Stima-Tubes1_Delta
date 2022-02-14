@@ -19,7 +19,7 @@ public class Controller {
       BaseAnalyzer analyzer = analyzersList.get(i);
       analyzer.analyze();
 
-      if(analyzer.isSolutionExist()){
+      if(analyzer.isSolutionExist()) {
         return analyzer.getSolution();
       }
     }

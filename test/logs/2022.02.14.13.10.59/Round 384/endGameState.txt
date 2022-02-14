@@ -1,0 +1,6 @@
+Match seed: 28814
+
+The winner is: B - CoffeeRef
+
+A - 25 - Delta - score:30 health:0
+B - CoffeeRef - score:11 health:0

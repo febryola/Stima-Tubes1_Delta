@@ -17,10 +17,12 @@ public class Bot {
     }
     
     private void register(){
+        // ....
         this.ctr.addAnalyzer(new BoostCollector(gameState));
+        // ...
     }
 
     public Command run() {
-        return ctr.nextAction();
+        return this.ctr.nextAction();
     }
 }

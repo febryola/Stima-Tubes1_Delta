@@ -1,7 +1,6 @@
 package com.delta.stima.tubes1.analyzer;
 
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
-import com.delta.stima.tubes1.command.Command;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.enums.RelativePosition;
 import com.delta.stima.tubes1.enums.Terrain;
@@ -27,6 +26,8 @@ public class BoostCollector extends BaseAnalyzer {
 
     private List<List<Terrain>> getLanes(){
         List<List<Terrain>> l = new ArrayList<>();
+
+        this.getVisibleLanes(1, RelativePosition.FRONT);
 
         l.add(this.getVisibleLanes(this.playerCar.position.lane, RelativePosition.FRONT));
         l.add(this.getVisibleLanes(this.playerCar.position.lane - 1, RelativePosition.FRONT));
