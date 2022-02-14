@@ -8,4 +8,10 @@ test:
 package:
 	@zip -r Delta.zip bin docs src README.md
 
-.PHONY: all test
+clean:
+	@rm -rf ./test/logs
+	@mkdir ./test/logs
+
+clear: clean
+
+.PHONY: all test clean clear

@@ -1,5 +1,6 @@
 package com.delta.stima.tubes1;
 
+import com.delta.stima.tubes1.analyzer.BoostCollector;
 import com.delta.stima.tubes1.command.*;
 import com.delta.stima.tubes1.controller.Controller;
 import com.delta.stima.tubes1.entities.*;
@@ -16,7 +17,7 @@ public class Bot {
     }
     
     private void register(){
-        // Masukin analyzer disini
+        this.ctr.addAnalyzer(new BoostCollector(gameState));
     }
 
     public Command run() {

@@ -1,0 +1,8 @@
+version: "2.9"
+
+services:
+  balapan:
+    build: .
+    container_name: stima-game-runner
+    volumes:
+      - ./test/logs:/app/match-logs
