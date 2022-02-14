@@ -3,6 +3,7 @@ package com.delta.stima.tubes1.analyzer;
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.enums.RelativePosition;
+import com.delta.stima.tubes1.enums.SteerDirection;
 import com.delta.stima.tubes1.enums.Terrain;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ public class PowerupsCollector extends BaseAnalyzer {
     private void setCommandResult(int pos) {
         switch (pos){
             case 1:
-                this.setSolution(new ChangeLaneCommand(-1));
+                this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
                 break;
             case 2:
-                this.setSolution(new ChangeLaneCommand(1));
+                this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
                 break;
         }
     }

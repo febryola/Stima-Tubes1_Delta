@@ -2,10 +2,12 @@ package com.delta.stima.tubes1.analyzer;
 
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
 import com.delta.stima.tubes1.command.DecelerateCommand;
+import com.delta.stima.tubes1.command.FixCommand;
 import com.delta.stima.tubes1.command.LizardCommand;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.entities.Lane;
 import com.delta.stima.tubes1.enums.PowerUps;
+import com.delta.stima.tubes1.enums.SteerDirection;
 import com.delta.stima.tubes1.enums.Terrain;
 
 public class ObstacleAvoid extends BaseAnalyzer {
@@ -68,11 +70,17 @@ public class ObstacleAvoid extends BaseAnalyzer {
             return;
         }
 
+<<<<<<< HEAD
         // Obstacle checking
 
         // if car position is not on the left side and not on the right side
         if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)){
             this.setSolution(new ChangeLaneCommand(-1));
+=======
+        // Cek Kiri ada obstacle ga?
+        if(currentLane > 1 && !this.isObstacleExist(currentLane-1)){
+            this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
+>>>>>>> 303cc81e79ec137220e28221e14f9db88b2a26b9
             return;
         }
 
