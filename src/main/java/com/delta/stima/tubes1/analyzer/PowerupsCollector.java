@@ -39,7 +39,7 @@ public class PowerupsCollector extends BaseAnalyzer {
 
         for(Terrain type: powerups) {
             for(int i = 0; i < l.size(); i++){
-                for(int j = 0; j <= Math.min(this.playerCar.speed, l.get(i).size()); j++){
+                for(int j = 0; j < Math.min(this.playerCar.speed + 1, l.get(i).size()); j++){
                     if(l.get(i).get(j) == type){
                         this.setCommandResult(i);
                         return;
