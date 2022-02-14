@@ -43,7 +43,7 @@ public class ObstacleAvoid extends BaseAnalyzer {
         int currentBlock = this.playerCar.position.block;
 
         for(Lane l: this.gameState.lanes.get(lane - 1)){
-            if(l.position.block > this.playerCar.speed){
+            if(l.position.block > this.playerCar.position.block + this.playerCar.speed){
                 return false;
             } else if(l.position.block > currentBlock && (l.terrain == Terrain.MUD || l.terrain == Terrain.OIL_SPILL || l.terrain == Terrain.WALL)){
                 return true;
@@ -75,20 +75,24 @@ public class ObstacleAvoid extends BaseAnalyzer {
         // if car position is not on the left side and not on the right side
         if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
             this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
+            return;
         }
 
         if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane+1)) {
             this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
+            return;
         }
 
         // if car position is on the left side
         if(currentLane == 1 && !this.isObstacleExist(currentLane+1)) {
             this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
+            return;
         }
 
         // if car position is on the right side
         if (currentLane == this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
             this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
+            return;
         }
 
         // Another trick, decrease speed
