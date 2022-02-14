@@ -44,6 +44,15 @@ public class ObstacleAvoidTest {
         Assertions.assertEquals(new ChangeLaneCommand(SteerDirection.RIGHT).render(), oa.getSolution().render());
     }
 
+    /*
+        Map:
+        [░░░░░░░░▓░░░░░░░░▓░░*░░░░░]
+        [░░░░░1░░░▓▓░∱░░▓░░░░░░T░░░]
+        [░░░░░░░░░░Φ░▓▓░░░░░░░░░░░░]
+        [░░░░░░░░░░░░░░»░░░░░░░░░░░]
+
+        Speed: 10g
+     */
     @Disabled("Masih menunggu implementasinya")
     @Test
     public void testObstacle03(){
@@ -52,5 +61,23 @@ public class ObstacleAvoidTest {
         oa.analyze();
         Assertions.assertTrue(oa.isSolutionExist());
         Assertions.assertEquals(new ChangeLaneCommand(SteerDirection.RIGHT).render(), oa.getSolution().render());
+    }
+
+    /*
+        Map:
+        [░░░░░░░░*▓▓░░░░░░░░░░░░░░░]
+        [░░░░░1░»░▓░░░░░░░░░░░░Φ░░░]
+        [░░░░░░░░░▓░░░░░*░░░░░░░░░░]
+        [░░▓░░░░░░░░░░░░░░░░░░░T░░░]
+
+        Speed: 6
+     */
+    @Disabled("Masih menunggu implementasinya")
+    @Test
+    public void testObstacle04(){
+        ObstacleAvoid oa = new ObstacleAvoid(this.gamestateBuilder("./test/inputTest/Obstacle/Obstacle-3.json"));
+        Assertions.assertNotNull(oa);
+        oa.analyze();
+        Assertions.assertFalse(oa.isSolutionExist());
     }
 }
