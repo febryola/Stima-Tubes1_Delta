@@ -39,7 +39,7 @@ public class ObstacleAvoid extends BaseAnalyzer {
         return false;
     }
 
-    private boolean isTerrainObstacleExist(int lane){
+    private boolean isTerrainObstacleExist(int lane) {
         int currentBlock = this.playerCar.position.block;
 
         for(Lane l: this.gameState.lanes.get(lane - 1)){

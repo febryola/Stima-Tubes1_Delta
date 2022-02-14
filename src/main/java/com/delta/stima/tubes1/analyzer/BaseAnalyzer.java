@@ -62,8 +62,6 @@ public abstract class BaseAnalyzer {
   protected List<List<Terrain>> getLanes(){
     List<List<Terrain>> l = new ArrayList<>();
 
-    this.getVisibleLanes(1, RelativePosition.FRONT);
-
     l.add(this.getVisibleLanes(this.playerCar.position.lane, RelativePosition.FRONT));
     l.add(this.getVisibleLanes(this.playerCar.position.lane - 1, RelativePosition.FRONT));
     l.add(this.getVisibleLanes(this.playerCar.position.lane + 1, RelativePosition.FRONT));
