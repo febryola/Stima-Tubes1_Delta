@@ -44,7 +44,8 @@ public class ObstacleAvoidTest {
         Assertions.assertEquals(new ChangeLaneCommand(SteerDirection.RIGHT).render(), oa.getSolution().render());
     }
 
-    @Disabled
+    @Disabled("Masih menunggu implementasinya")
+    @Test
     public void testObstacle03(){
         ObstacleAvoid oa = new ObstacleAvoid(this.gamestateBuilder("./test/inputTest/Obstacle/Obstacle-3.json"));
         Assertions.assertNotNull(oa);
