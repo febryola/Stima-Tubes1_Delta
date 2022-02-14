@@ -6,10 +6,11 @@ import com.delta.stima.tubes1.enums.RelativePosition;
 import com.delta.stima.tubes1.enums.Terrain;
 
 import java.util.ArrayList;
+import java.lang.Math;
 import java.util.List;
 
-public class BoostCollector extends BaseAnalyzer {
-    public BoostCollector(GameState gameState){
+public class PowerupsCollector extends BaseAnalyzer {
+    public PowerupsCollector(GameState gameState){
         super(gameState);
     }
 
@@ -47,12 +48,13 @@ public class BoostCollector extends BaseAnalyzer {
            Terrain.OIL_POWER
         };
 
-
-        for(Terrain type: powerups){
+        for(Terrain type: powerups) {
             for(int i = 0; i < l.size(); i++){
-                if(l.get(i).contains(type)){
-                    this.setCommandResult(i);
-                    return;
+                for(int j = 0; j <= Math.min(this.playerCar.speed, l.get(i).size()); j++){
+                    if(l.get(i).get(j) == type){
+                        this.setCommandResult(i);
+                        return;
+                    }
                 }
             }
         }
