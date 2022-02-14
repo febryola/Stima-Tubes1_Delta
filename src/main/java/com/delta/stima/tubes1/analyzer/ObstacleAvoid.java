@@ -35,7 +35,6 @@ public class ObstacleAvoid extends BaseAnalyzer {
                 return true;
             }
         }
-
         return false;
     }
 
