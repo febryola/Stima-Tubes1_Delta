@@ -43,7 +43,7 @@ public class ObstacleAvoid extends BaseAnalyzer {
         for(Lane l: this.gameState.lanes.get(lane - 1)){
             if(l.position.block > this.playerCar.speed){
                 return false;
-            } else if(l.position.block > currentBlock && (l.terrain == Terrain.MUD || false)){
+            } else if(l.position.block > currentBlock && (l.terrain == Terrain.MUD || l.terrain == Terrain.OIL_SPILL || l.terrain == Terrain.WALL)){
                 return true;
             }
         }
@@ -62,22 +62,35 @@ public class ObstacleAvoid extends BaseAnalyzer {
             return;
         }
 
-        // Cek Lizardnya ada ga?
+        // Lizard checking
         if(this.checkIsLizardExist()){
             this.setSolution(new LizardCommand());
             return;
         }
 
-        // Cek Kiri ada obstacle ga?
-        if(currentLane > 1 && !this.isObstacleExist(currentLane-1)){
+        // Obstacle checking
+
+        // if car position is not on the left side and not on the right side
+        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)){
             this.setSolution(new ChangeLaneCommand(-1));
             return;
         }
 
-        // Kanan Cobain
-        // ...
+        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane+1)) {
+            this.setSolution(new ChangeLaneCommand(currentLane+1));
+        }
 
-        // Pelanin
+        // if car position is on the left side
+        if(currentLane == 1 && !this.isObstacleExist(currentLane+1)) {
+            this.setSolution(new ChangeLaneCommand(currentLane+1));
+        }
+
+        // if car position is on the right side
+        if (currentLane == this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
+            this.setSolution(new ChangeLaneCommand(currentLane-1));
+        }
+
+        // Another trick, decrease speed
         this.setSolution(new DecelerateCommand());
     }
 }
