@@ -49,7 +49,7 @@ public class ObstacleAvoid extends BaseAnalyzer {
         int cnt = 0;
 
         for(Lane l: this.gameState.lanes.get(lane - 1)){
-            if(l.position.block > this.playerCar.speed){
+            if(l.position.block > currentBlock + this.playerCar.speed){
                 return cnt * 2;
             } else if(l.position.block > currentBlock && l.isOccupiedByCyberTruck){
                 cnt++;

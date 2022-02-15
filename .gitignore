@@ -26,3 +26,4 @@ match-logs/
 test/logs/
 build/
 bin/
+target/
