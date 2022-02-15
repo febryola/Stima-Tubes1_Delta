@@ -18,6 +18,7 @@ public class SpeedAbility extends BaseAnalyzer{
 
         return false;
     }
+<<<<<<< HEAD
 
     public boolean checkKondisiAmanJikaSpeed(){
         int playerBlock = this.playerCar.position.block;
@@ -27,6 +28,13 @@ public class SpeedAbility extends BaseAnalyzer{
                 if((opponentBlock-playerBlock>=15)) {
                     return true;
                 }
+=======
+    public void analyze(){
+        if(this.checkIsBoostExist()){
+            this.setSolution(new BoostCommand());
+            return;
+        }
+>>>>>>> 604eeb13e6eee2f4e206b1f96952aa2346885d18
 
             }
         }

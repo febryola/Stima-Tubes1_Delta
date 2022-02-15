@@ -5,7 +5,6 @@ import com.delta.stima.tubes1.entities.Car;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.entities.Lane;
 import com.delta.stima.tubes1.enums.RelativePosition;
-import com.delta.stima.tubes1.enums.State;
 import com.delta.stima.tubes1.enums.Terrain;
 
 import java.util.ArrayList;
