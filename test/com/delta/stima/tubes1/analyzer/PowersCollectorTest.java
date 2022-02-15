@@ -11,19 +11,7 @@ import com.google.gson.Gson;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class PowersCollectorTest {
-    private GameState gamestateBuilder(String filePath) {
-        try{
-            String state = new String(Files.readAllBytes(Paths.get(filePath)));
-            GameState gameState = new Gson().fromJson(state, GameState.class);
-
-            return gameState;
-        }catch(Exception err) {
-            Assertions.fail();
-            return null;
-        }
-    }
-
+public class PowersCollectorTest extends BaseAnalyzerTest {
     @Test
     public void createCollector() {
         try{

@@ -1,30 +1,12 @@
 package com.delta.stima.tubes1.analyzer;
 
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
-import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.enums.SteerDirection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
 
-import com.google.gson.Gson;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class ObstacleAvoidTest {
-    private GameState gamestateBuilder(String filePath) {
-        try{
-            String state = new String(Files.readAllBytes(Paths.get(filePath)));
-            GameState gameState = new Gson().fromJson(state, GameState.class);
-
-            return gameState;
-        }catch(Exception err) {
-            Assertions.fail();
-            return null;
-        }
-    }
-
+public class ObstacleAvoidTest extends BaseAnalyzerTest {
     @Test
     public void createObstacle(){
         try{

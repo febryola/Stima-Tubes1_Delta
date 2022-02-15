@@ -2,13 +2,16 @@ package com.delta.stima.tubes1.analyzer;
 
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
 import com.delta.stima.tubes1.command.DecelerateCommand;
-import com.delta.stima.tubes1.command.FixCommand;
 import com.delta.stima.tubes1.command.LizardCommand;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.entities.Lane;
 import com.delta.stima.tubes1.enums.PowerUps;
 import com.delta.stima.tubes1.enums.SteerDirection;
 import com.delta.stima.tubes1.enums.Terrain;
+
+enum Damage {
+
+}
 
 public class ObstacleAvoid extends BaseAnalyzer {
     public ObstacleAvoid(GameState gameState) {
@@ -25,35 +28,49 @@ public class ObstacleAvoid extends BaseAnalyzer {
         return false;
     }
 
-    private boolean isCybertruckExist(int lane) {
+    private int cybertruckDamage(int lane) {
         int currentBlock = this.playerCar.position.block;
+        int cnt = 0;
 
         for(Lane l: this.gameState.lanes.get(lane - 1)){
             if(l.position.block > this.playerCar.speed){
-                return false;
+                return cnt * 2;
             } else if(l.position.block > currentBlock && l.isOccupiedByCyberTruck){
-                return true;
+                cnt++;
             }
         }
-        return false;
+        return cnt * 2;
     }
 
-    private boolean isTerrainObstacleExist(int lane) {
+    private int terrainDamage(int lane) {
         int currentBlock = this.playerCar.position.block;
+        int damage = 0;
 
         for(Lane l: this.gameState.lanes.get(lane - 1)){
             if(l.position.block > this.playerCar.position.block + this.playerCar.speed){
-                return false;
-            } else if(l.position.block > currentBlock && (l.terrain == Terrain.MUD || l.terrain == Terrain.OIL_SPILL || l.terrain == Terrain.WALL)){
-                return true;
+                return damage;
+            } else if(l.position.block > currentBlock){
+                switch (l.terrain){
+                    case MUD:
+                        damage += 1;
+                        break;
+                    case OIL_SPILL:
+                    case WALL:
+                        damage += 2;
+                        break;
+                }
             }
         }
 
-        return false;
+        return damage;
     }
 
     private boolean isObstacleExist(int lane){
-        return this.isCybertruckExist(lane) || this.isTerrainObstacleExist(lane);
+        return this.totalDamage(lane) > 0;
+    }
+
+    private int totalDamage(int lane){
+        return this.cybertruckDamage(lane) + this.terrainDamage(lane);
     }
 
     public void analyze() {
@@ -71,28 +88,6 @@ public class ObstacleAvoid extends BaseAnalyzer {
 
         // Obstacle checking
 
-        // if car position is not on the left side and not on the right side
-        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
-            this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
-            return;
-        }
-
-        if(currentLane > 1 && currentLane < this.gameState.lanes.size() && !this.isObstacleExist(currentLane+1)) {
-            this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
-            return;
-        }
-
-        // if car position is on the left side
-        if(currentLane == 1 && !this.isObstacleExist(currentLane+1)) {
-            this.setSolution(new ChangeLaneCommand(SteerDirection.RIGHT));
-            return;
-        }
-
-        // if car position is on the right side
-        if (currentLane == this.gameState.lanes.size() && !this.isObstacleExist(currentLane-1)) {
-            this.setSolution(new ChangeLaneCommand(SteerDirection.LEFT));
-            return;
-        }
 
         // Another trick, decrease speed
         this.setSolution(new DecelerateCommand());
