@@ -74,6 +74,8 @@ public class ObstacleAvoid extends BaseAnalyzer {
                     case WALL:
                         damage += 2;
                         break;
+                    default:
+                        break;
                 }
             }
         }
@@ -147,5 +149,7 @@ public class ObstacleAvoid extends BaseAnalyzer {
                 this.setSolution(new DecelerateCommand());
             }
         }
+
+        this.playerCar.speed = lastSpeed;
     }
 }

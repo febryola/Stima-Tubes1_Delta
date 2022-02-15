@@ -18,7 +18,6 @@ public class SpeedAbility extends BaseAnalyzer{
         return false;
     }
     public void analyze(){
-
         if(this.checkIsBoostExist()){
             this.setSolution(new BoostCommand());
             return;

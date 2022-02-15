@@ -2,11 +2,9 @@ package com.delta.stima.tubes1.analyzer;
 
 import com.delta.stima.tubes1.command.ChangeLaneCommand;
 import com.delta.stima.tubes1.entities.GameState;
-import com.delta.stima.tubes1.enums.RelativePosition;
 import com.delta.stima.tubes1.enums.SteerDirection;
 import com.delta.stima.tubes1.enums.Terrain;
 
-import java.util.ArrayList;
 import java.lang.Math;
 import java.util.List;
 
