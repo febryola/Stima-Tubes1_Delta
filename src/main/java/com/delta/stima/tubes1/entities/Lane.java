@@ -15,4 +15,12 @@ public class Lane {
 
     @SerializedName("isOccupiedByCyberTruck")
     public Boolean isOccupiedByCyberTruck;
+
+    public Lane() {}
+    public Lane(Lane copy){
+        this.position = new Position(copy.position);
+        this.terrain = copy.terrain;
+        this.occupiedByPlayerId = copy.occupiedByPlayerId;
+        this.isOccupiedByCyberTruck = copy.isOccupiedByCyberTruck;
+    }
 }

@@ -8,4 +8,10 @@ public class Position {
 
     @SerializedName("x")
     public int block;
+
+    public Position(){}
+    public Position(Position copy){
+        this.lane = copy.lane;
+        this.block = copy.block;
+    }
 }

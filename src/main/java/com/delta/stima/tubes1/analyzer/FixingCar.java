@@ -9,7 +9,7 @@ public class FixingCar extends BaseAnalyzer {
     }
 
     public void analyze(){
-        if(this.gameState.player.damage > 0) {
+        if(this.gameState.player.damage >= 2) {
             this.setSolution(new FixCommand());
         }
     }

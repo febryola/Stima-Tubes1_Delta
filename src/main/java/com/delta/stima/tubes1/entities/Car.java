@@ -31,4 +31,22 @@ public class Car {
 
     @SerializedName("score")
     public int score;
+
+    public Car() {}
+    public Car(Car copy) {
+        this.id = copy.id;
+        this.position = new Position(copy.position);
+        this.speed = copy.speed;
+        this.state = copy.state;
+        this.damage = copy.damage;
+
+        this.powerups = new PowerUps[copy.powerups.length];
+        for(int i = 0; i < copy.powerups.length; i++){
+            this.powerups[i] = copy.powerups[i];
+        }
+
+        this.boosting = copy.boosting;
+        this.boostCounter= copy.boostCounter;
+        this.score = copy.score;
+    }
 }

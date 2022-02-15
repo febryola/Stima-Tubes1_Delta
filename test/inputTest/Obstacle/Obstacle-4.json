@@ -16,8 +16,7 @@
       "EMP",
       "OIL",
       "BOOST",
-      "TWEET",
-      "LIZARD"
+      "TWEET"
     ],
     "boosting":false,
     "boostCounter":0,
