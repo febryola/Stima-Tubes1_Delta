@@ -4,6 +4,7 @@ import com.delta.stima.tubes1.command.*;
 import com.delta.stima.tubes1.entities.GameState;
 import com.delta.stima.tubes1.enums.PowerUps;
 
+
 public class SpeedAbility extends BaseAnalyzer{
     public SpeedAbility(GameState gameState) {
         super(gameState);
@@ -17,14 +18,30 @@ public class SpeedAbility extends BaseAnalyzer{
 
         return false;
     }
-    public void analyze(){
 
-        if(this.checkIsBoostExist()){
-            this.setSolution(new BoostCommand());
-            return;
+    public boolean checkKondisiAmanJikaSpeed(){
+        int playerBlock = this.playerCar.position.block;
+        int opponentBlock = this.opponentCar.position.block;
+        for(PowerUps ps: this.gameState.player.powerups) {
+            if(ps == PowerUps.BOOST){
+                if((opponentBlock-playerBlock>=15)) {
+                    return true;
+                }
+
+            }
         }
 
-        this.setSolution(new AccelerateCommand());
-
+        return false;
+    }
+    public void analyze(){
+        if(this.checkIsBoostExist()){
+            if(this.checkKondisiAmanJikaSpeed()) {
+                this.setSolution(new BoostCommand());
+                return;
+            }
+        }
+        if(this.checkKondisiAmanJikaSpeed()) {
+            this.setSolution(new AccelerateCommand());
+        }
     }
 }
