@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/bayu/Documents/tubes-stima-1/src/main/java/com/delta/stima/tubes1</OriginalElement>
+  <nodes>
+    <node x="1672.9172610734379" y="852.0799830371216">com.delta.stima.tubes1.command.OilCommand</node>
+    <node x="639.3356304712238" y="1144.3160737567516">com.delta.stima.tubes1.analyzer.SteerState</node>
+    <node x="1914.769884613251" y="649.5745460838839">com.delta.stima.tubes1.command.Command</node>
+    <node x="27.5" y="818.7399888247345">com.delta.stima.tubes1.enums.Direction</node>
+    <node x="2220.6652163360804" y="529.7745524380232">com.delta.stima.tubes1.command.LizardCommand</node>
+    <node x="2108.3836026936615" y="841.2505565141317">com.delta.stima.tubes1.command.EmpCommand</node>
+    <node x="1914.769884613251" y="435.00000000000006">com.delta.stima.tubes1.command.ChangeLaneCommand</node>
+    <node x="879.0" y="399.0">com.delta.stima.tubes1.analyzer.ObstacleAvoid</node>
+    <node x="402.1682808716707" y="1144.3160737567516">com.delta.stima.tubes1.Main</node>
+    <node x="1670.348165977419" y="461.9175067693948">com.delta.stima.tubes1.command.DecelerateCommand</node>
+    <node x="972.0" y="1144.3160737567518">com.delta.stima.tubes1.enums.PowerUps</node>
+    <node x="144.19891972434357" y="1170.6399701992923">com.delta.stima.tubes1.enums.Terrain</node>
+    <node x="1195.0" y="1002.8199850996461">com.delta.stima.tubes1.enums.State</node>
+    <node x="1140.0" y="435.0">com.delta.stima.tubes1.analyzer.FixingCar</node>
+    <node x="990.5680759918048" y="835.0">com.delta.stima.tubes1.enums.SteerDirection</node>
+    <node x="529.5" y="0.0">com.delta.stima.tubes1.analyzer.BaseAnalyzer</node>
+    <node x="328.2080461910971" y="835.0">com.delta.stima.tubes1.controller.Controller</node>
+    <node x="287.5" y="1015.3199850996461">com.delta.stima.tubes1.entities.GameState</node>
+    <node x="593.0" y="410.5">com.delta.stima.tubes1.analyzer.PowerupsCollector</node>
+    <node x="260.0" y="411.0">com.delta.stima.tubes1.analyzer.SpeedAbility</node>
+    <node x="1862.9696424825008" y="924.2505565141317">com.delta.stima.tubes1.command.AccelerateCommand</node>
+    <node x="577.9359284783014" y="1015.3199850996461">com.delta.stima.tubes1.entities.Position</node>
+    <node x="2453.979867762958" y="659.5226742269273">com.delta.stima.tubes1.command.TweetCommand</node>
+    <node x="55.0" y="1027.8199850996461">com.delta.stima.tubes1.Bot</node>
+    <node x="0.0" y="399.0">com.delta.stima.tubes1.analyzer.AttackAbility</node>
+    <node x="818.6159433786553" y="1015.3199850996461">com.delta.stima.tubes1.entities.Lane</node>
+    <node x="1011.2959582790093" y="1015.3199850996461">com.delta.stima.tubes1.entities.Car</node>
+    <node x="2303.7406715348498" y="786.5824618968845">com.delta.stima.tubes1.command.FixCommand</node>
+    <node x="1512.2142956104979" y="582.842382592496">com.delta.stima.tubes1.command.BoostCommand</node>
+    <node x="639.2920469361148" y="835.0">com.delta.stima.tubes1.enums.RelativePosition</node>
+    <node x="1489.7142956104979" y="741.6031629733405">com.delta.stima.tubes1.command.DoNothingCommand</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.delta.stima.tubes1.analyzer.ObstacleAvoid" target="com.delta.stima.tubes1.analyzer.BaseAnalyzer" relationship="GENERALIZATION">
+      <point x="0.0" y="-77.5" />
+      <point x="999.5" y="374.0" />
+      <point x="726.0" y="374.0" />
+      <point x="0.0" y="174.5" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.OilCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1754.9172610734379" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.DoNothingCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1606.7142956104979" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.ChangeLaneCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="2069.7698846132507" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.analyzer.AttackAbility" target="com.delta.stima.tubes1.analyzer.BaseAnalyzer" relationship="GENERALIZATION">
+      <point x="0.0" y="-77.5" />
+      <point x="120.0" y="374.0" />
+      <point x="726.0" y="374.0" />
+      <point x="0.0" y="174.5" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.analyzer.SpeedAbility" target="com.delta.stima.tubes1.analyzer.BaseAnalyzer" relationship="GENERALIZATION">
+      <point x="0.0" y="-65.5" />
+      <point x="416.5" y="374.0" />
+      <point x="726.0" y="374.0" />
+      <point x="0.0" y="174.5" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.EmpCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="2196.8836026936615" y="836.412504735402" />
+      <point x="2188.851585028743" y="836.412504735402" />
+      <point x="2188.851585028743" y="707.5745460838839" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.AccelerateCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1977.4696424825008" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.BoostCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1606.7142956104979" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.DecelerateCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1785.848165977419" y="691.1224134707344" />
+      <point x="1988.269884613251" y="691.1224134707344" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.TweetCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="2561.479867762958" y="707.5745460838839" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.LizardCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="2316.1652163360804" y="707.5745460838839" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.analyzer.PowerupsCollector" target="com.delta.stima.tubes1.analyzer.BaseAnalyzer" relationship="GENERALIZATION">
+      <point x="0.0" y="-66.0" />
+      <point x="0.0" y="174.5" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.command.FixCommand" target="com.delta.stima.tubes1.command.Command" relationship="REALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="2385.7406715348498" y="783.296468229535" />
+      <point x="2398.591899798719" y="783.296468229535" />
+      <point x="2398.591899798719" y="707.5745460838839" />
+      <point x="0.0" y="29.0" />
+    </edge>
+    <edge source="com.delta.stima.tubes1.analyzer.FixingCar" target="com.delta.stima.tubes1.analyzer.BaseAnalyzer" relationship="GENERALIZATION">
+      <point x="0.0" y="-41.5" />
+      <point x="1240.0" y="374.0" />
+      <point x="726.0" y="374.0" />
+      <point x="0.0" y="174.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6225085910652921" showDependencies="false" x="1484.0540988131384" y="667.7609715705216" />
+  <SelectedNodes>
+    <node>com.delta.stima.tubes1.command.OilCommand</node>
+    <node>com.delta.stima.tubes1.command.AccelerateCommand</node>
+    <node>com.delta.stima.tubes1.command.Command</node>
+    <node>com.delta.stima.tubes1.command.EmpCommand</node>
+    <node>com.delta.stima.tubes1.command.TweetCommand</node>
+    <node>com.delta.stima.tubes1.command.ChangeLaneCommand</node>
+    <node>com.delta.stima.tubes1.command.FixCommand</node>
+    <node>com.delta.stima.tubes1.command.BoostCommand</node>
+    <node>com.delta.stima.tubes1.command.DecelerateCommand</node>
+    <node>com.delta.stima.tubes1.command.DoNothingCommand</node>
+    <node>com.delta.stima.tubes1.command.LizardCommand</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
