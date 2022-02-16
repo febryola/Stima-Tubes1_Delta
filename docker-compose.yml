@@ -6,4 +6,5 @@ services:
     container_name: stima-game-runner
     volumes:
       - ./test/logs:/app/match-logs
-      - ./banding/8bf0eba:/app/bots/second-player
+      - ./banding/batasFixing:/app/bots/first-player
+      - ./banding/selaluFixing:/app/bots/second-player
