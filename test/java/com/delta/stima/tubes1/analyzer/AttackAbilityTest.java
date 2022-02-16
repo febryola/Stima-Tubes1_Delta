@@ -40,6 +40,7 @@ public class AttackAbilityTest extends BaseAnalyzerTest {
         [░ΦT░░1*░░░Φ░2░░░*░░░░░░░░░]
         [░░░░░░░░░░░░░▓▓░░░░░░#░░░░]
         [░░░░░░Φ░░░░░▓▓░░░T░░Φ░░░░░]
+
         [░░░*Φ░░▓░░░▓▓▓░░░░»░∱░░░░░]
 
         Ability :
