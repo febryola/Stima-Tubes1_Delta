@@ -25,7 +25,7 @@ Tugas Besar 1 IF2211 Strategi Algoritma Semester II Tahun 2021/2022 Pemanfaatan 
 3. Click run.bat
 
 ## How To Visualize
-1. Download [Entellect Challenge 2020 Visualizer](https://github.com/dlweatherhead/entelect-challenge-2020-visualiser)
+1. Download [Entellect Challenge 2020 Visualizer].(https://github.com/Affuta/overdrive-round-runner)
 2. Copy your latest match log that you want to visualize from **match-logs** folder to "Matches" folder inside the visualizer folder that you have downloaded.
 3. Click start-visualizer.
 4. Choose your match log in the visualizer.
