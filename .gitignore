@@ -24,5 +24,4 @@ hs_err_pid*
 match-logs/
 test/logs/
 build/
-target/
 banding/
