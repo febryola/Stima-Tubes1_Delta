@@ -2,7 +2,7 @@
 
 Tugas Besar 1 IF2211 Strategi Algoritma Semester II Tahun 2021/2022 Pemanfaatan Algoritma Greedy dalam Aplikasi Permainan “Overdrive”
 
-## Author - WeTheClown
+## Author - delTa
 
 1. Hana Fathiyah / 13520047
 2. Bayu Samudra / 13520128
